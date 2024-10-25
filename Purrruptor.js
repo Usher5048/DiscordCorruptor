@@ -5,18 +5,36 @@ const readline = require("readline-sync");
 // Discord token
 var DISCORD_TOKEN = readline.question("Input a Discord Token:\n");
 console.log("Discord Token:", DISCORD_TOKEN);
+const root = protobuf.Root.fromJSON({
+    nested: {
+        UserSettings: {
+            fields: {
+                guildFolders: { rule: "repeated", type: "GuildFolder", id: 2 }
+            }
+        },
+        GuildFolder: {
+            fields: {
+                id: { type: "uint32", id: 1 },
+                guildIds: { rule: "repeated", type: "uint64", id: 2 },
+                name: { type: "string", id: 3 },
+                color: { type: "uint32", id: 4 }
+            }
+        }
+    }
+});
+
+const UserSettings = root.lookupType("UserSettings");
+
 (async () => {
-    const root = await protobuf.load("usersettings.proto");
-    const UserSettings = root.lookupType("UserSettings");
     const settingsPayload = {
         guildFolders: [
             {
                 id: 1,
                 guildIds: [
                     Long.fromString('123456789012345678'),
-                    Long.fromString('123456789012345678')
+                    Long.fromString('987654321098765432')
                 ],
-                name: 'I love corruption >W<',
+                name: 'My Folder',
                 color: 0xff0000
             }
         ]
@@ -40,8 +58,8 @@ console.log("Discord Token:", DISCORD_TOKEN);
                 }
             }
         );
-        console.log('Corrupted uwu: ', response.data);
+        console.log('Pwnd >:3c', response.data);
     } catch (error) {
-        console.error('Error ): :', error.response ? error.response.data : error.message);
+        console.error('Error pwning ): :', error.response ? error.response.data : error.message);
     }
 })();
