@@ -5,8 +5,6 @@ const readline = require("readline-sync");
 // Discord token
 var DISCORD_TOKEN = readline.question("Input a Discord Token:\n");
 console.log("Discord Token:", DISCORD_TOKEN);
-console.log("Numbers:", number);
-console.log(number);
 (async () => {
     const root = await protobuf.load("usersettings.proto");
     const UserSettings = root.lookupType("UserSettings");
