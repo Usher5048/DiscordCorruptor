@@ -11,3 +11,5 @@ It makes an account unusable unless via the api. So, this allows attackers to cr
 I'm open sourcing this project because Discord told me I couldn't get my account back because I broke the TOS. So to ensure a solution is found, lol, im open sourcing it >W<
 
 So yes, out of pity.
+
+# TECH SUPPORT NOT AVAILABLE, DO NOT ASK ME FOR TECH SUPPORT ON THIS PROGRAM
